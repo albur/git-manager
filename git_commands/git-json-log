@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+git log --no-merges --pretty=format:'{%n  "hash": "%H",%n  "short_hash": "%h",%n  "author_name": "%an",%n  "author_email": "%ae",%n  "date": "%at",%n  "message": "%f"%n},' $1 \
+    $@ | \
+    perl -pe 'BEGIN{print "["}; END{print "]\n"}' | \
+    perl -pe 's/},]/}]/'

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+repo_dir=/home/alberto/data/repos/dev02
+production_remote=test02
+production_branch=master
+
+base_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+data_dir=$base_dir/data
+git_commands_dir=$base_dir/git_commands
+
+cd $repo_dir
+git fetch $production_remote $production_branch
+
+for remote in `git remote`; do
+
+    [[ $remote == $production_remote ]] && continue
+    git fetch $remote
+
+    head=$(git ls-remote $remote HEAD | grep -P '\tHEAD$' | sed s'/\t.*//')
+    echo "$remote: $head"
+    $git_commands_dir/git-json-log $head --not $production_remote/$production_branch > \
+        $data_dir/$remote.json
+done
