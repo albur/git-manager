@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-repo_dir=/home/alberto/data/repos/dev02
-prod_remote=test02
-prod_branch=master
+if [[ -z "$1" ]]; then
+    echo "Usage: generate-data CONFIG_FILE"
+    exit 1
+fi
 
+source $1
 base_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 heads_dir=$base_dir/data/heads
 logs_dir=$base_dir/data/logs
