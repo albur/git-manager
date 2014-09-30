@@ -7,9 +7,9 @@ fi
 
 source $1
 base_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-heads_dir=$base_dir/data/heads
-logs_dir=$base_dir/data/logs
 commands_dir=$base_dir/git_commands
+heads_dir=${heads_dir:-$base_dir/data/heads}
+logs_dir=${logs_dir:-$base_dir/data/logs}
 
 cd $repo_dir
 git fetch $prod_remote $prod_branch
