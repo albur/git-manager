@@ -7,17 +7,13 @@ from lib.bottle import route, run, static_file
 
 curr_dir = os.path.dirname(os.path.realpath(__file__))
 
-@route("/api/1/repo/<info>")
-def repo(info):
-    return static_file(info + ".json", root=config.repo_info_dir)
+@route("/api/1/repos")
+def repos():
+    return static_file("repos.json", root=config.data_dir)
 
-@route("/api/1/heads/<remote>")
-def heads(remote):
-    return static_file(remote + ".json", root=config.heads_dir)
-
-@route("/api/1/logs/<remote>")
-def logs(remote):
-    return static_file(remote + ".json", root=config.logs_dir)
+@route("/api/1/repos/<repo>/commits")
+def logs(repo):
+    return static_file("commits_" + repo + ".json", root=config.data_dir)
 
 @route("/api/1/reload")
 def reload():
