@@ -10,6 +10,7 @@ base_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 commands_dir=$base_dir/git_commands
 heads_dir=${heads_dir:-$base_dir/data/heads}
 logs_dir=${logs_dir:-$base_dir/data/logs}
+repo_info_dir=${repo_info_dir:-$base_dir/data/repo}
 
 cd $repo_dir
 git fetch $prod_remote $prod_branch
@@ -17,6 +18,7 @@ git fetch $prod_remote $prod_branch
 for remote in `git remote`; do
     [[ $remote == $prod_remote ]] && continue
     git fetch $remote
+    remotes+='{ "name": "'$remote'" }, '
 
     # Get the remote's branch
     branch=$(git remote show $remote | grep -P "^\s*HEAD branch:" | sed s'/\s*HEAD branch: //')
@@ -26,3 +28,5 @@ for remote in `git remote`; do
     head=$(git ls-remote $remote HEAD | grep -P '\tHEAD$' | sed s'/\t.*//')
     $commands_dir/git-json-log $head ^$prod_remote/$prod_branch > $logs_dir/$remote.json
 done
+
+echo '['${remotes:0:-2}']' > $repo_info_dir/remotes.json
