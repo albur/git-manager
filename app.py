@@ -21,6 +21,8 @@ def logs(repo):
 
 @route("/api/1/reload")
 def reload():
-    return subprocess.call([curr_dir + "/shell/generate-data", curr_dir + "/config.py"])
+    response.content_type = "application/json; charset=UTF8"
+    result = subprocess.call([curr_dir + "/shell/generate-data", curr_dir + "/config.py"])
+    return '{ "result": ' + str(result) + ' }'
 
 run(host="0.0.0.0", port=8123)
