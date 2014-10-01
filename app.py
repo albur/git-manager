@@ -19,4 +19,4 @@ def logs(repo):
 def reload():
     return subprocess.call([curr_dir + "/shell/generate-data", curr_dir + "/config.py"])
 
-run(host="localhost", port=8123)
+run(host="0.0.0.0", port=8123)
