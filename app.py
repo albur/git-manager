@@ -3,9 +3,13 @@
 import config
 import os
 import subprocess
-from lib.bottle import route, run, static_file
+from lib.bottle import response, route, run, static_file
 
 curr_dir = os.path.dirname(os.path.realpath(__file__))
+
+@route("/")
+def index():
+    return static_file("README.md", root=curr_dir, mimetype="text/plain")
 
 @route("/api/1/repos")
 def repos():
