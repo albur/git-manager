@@ -13,11 +13,11 @@ def index():
 
 @route("/api/1/repos")
 def repos():
-    return static_file("repos.json", root=config.data_dir)
+    return static_file("repos.json", root=config.data_dir, mimetype="application/json")
 
 @route("/api/1/repos/<repo>/commits")
 def logs(repo):
-    return static_file("commits_" + repo + ".json", root=config.data_dir)
+    return static_file("commits_" + repo + ".json", root=config.data_dir, mimetype="application/json")
 
 @route("/api/1/reload")
 def reload():
