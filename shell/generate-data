@@ -20,4 +20,4 @@ for repo in `git remote`; do
     $curr_dir/git-json-log $head ^$prod_repo/$prod_branch > $data_dir/commits_$repo.json
 done
 
-echo '['${repos:0:-2}']' > $data_dir/repos.json
+echo "[$repos]" | sed 's/, \]/\]/' > $data_dir/repos.json
