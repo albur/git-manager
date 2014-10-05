@@ -4,9 +4,9 @@ GitManager is a web tool which allows you to inspect and compare Git repositorie
 
 ## How to run it
 
-1. Edit [config.py](config.py).
-2. Start the application with `python3 app.py`.
-3. Open it at http://localhost:8123.
+1. Install the dependencies: `pip install -r requeriments.txt`.
+2. Edit the configuration in [config.py](config.py).
+3. Start the application: `python app.py`. (Browse it at http://localhost:8123).
 
 ## API
 

@@ -3,7 +3,7 @@
 import config
 import os
 import subprocess
-from lib.bottle import response, route, run, static_file
+from bottle import response, route, run, static_file
 
 curr_dir = os.path.dirname(os.path.realpath(__file__))
 
