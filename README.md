@@ -4,8 +4,8 @@ GitManager is a web tool which allows you to inspect and compare Git repositorie
 
 ## How to run it
 
-1. Edit the configuration in [config.py](config.py).
-2. Start the application: `python -m bottle --server cherrypy --bind 0.0.0.0:8123 app`.
+1. Edit the configuration in [src/python/config.py](src/python/config.py).
+2. Start the application: `python src/python/app.py`.
 3. Browse it at http://localhost:8123.
 
 ## API
