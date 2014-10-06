@@ -1,0 +1,58 @@
+<h1 class="page-header">Dashboard</h1>
+<div class="row">
+
+	<div class="col-xs-12 col-sm-8">
+		<h4>Repository usage</h4>
+		<div class="demo-container">
+			<div id="placeholder" class="demo-placeholder"></div>
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-sm-4">
+		<h4>Latest commit</h4>
+	</div>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+	$(function () {
+
+		var epochT = (new Date).getTime();
+
+		var options = {
+			lines: {
+				show: true
+			},
+			points: {
+				show: true
+			},
+			xaxis: {
+				mode: "time",
+				timeformat: "%I:%M %p",
+				tickSize: [1, "hour"],
+				twelveHourClock: true,
+				min: epochT - 86400000,
+				max: epochT,
+				timezone: "browser"
+			}
+		};
+
+		var data = [];
+
+		function onDataReceived(series) {
+			data.push(series);
+			$.plot("#placeholder", data, options);
+		}
+
+		$.ajax({
+			url: '/api/1/latest',
+			type: "GET",
+			dataType: "json",
+			success: onDataReceived
+		});
+
+
+	});
+
+
+</script>

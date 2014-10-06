@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="/favicon.ico">
+	<base href="/"/>
+	<title>Git Manager UI</title>
+	<link href="css/site.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body ng-app="gitUiApp">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="HeaderController">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">-->
+			<!--<span class="sr-only">Toggle navigation</span>-->
+			<!--<span class="icon-bar"></span>-->
+			<!--<span class="icon-bar"></span>-->
+			<!--<span class="icon-bar"></span>-->
+			<!--</button>-->
+			<a class="navbar-brand" href="#">Git Manager UI</a>
+		</div>
+		<a class="pull-right reload-btn" ng-click="reload()"><i class="glyphicon glyphicon-refresh"></i> Reload</a>
+		<!--<div class="navbar-collapse collapse">-->
+		<!--<ul class="nav navbar-nav navbar-right">-->
+		<!--<li><a href="#">Dashboard</a></li>-->
+		<!--<li><a href="#">Settings</a></li>-->
+		<!--<li><a href="#">Profile</a></li>-->
+		<!--<li><a href="#">Help</a></li>-->
+		<!--</ul>-->
+		<!--<form class="navbar-form navbar-right">-->
+		<!--<input type="text" class="form-control" placeholder="Search...">-->
+		<!--</form>-->
+		<!--</div>-->
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar" ng-controller="NavigationController">
+			<h4>Environment name</h4>
+			<ul class="nav nav-sidebar">
+				<li ng-repeat="item in items" ng-class="{active: isActive(item)}"><a href="{{item.path}}">{{item.title}}</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="reload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-include="'/js/partials/reload-modal.html'">
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="components/lodash/dist/lodash.min.js"></script>
+<script src="components/jquery/dist/jquery.min.js"></script>
+<script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="components/angular/angular.min.js"></script>
+<script src="components/ui-router/release/angular-ui-router.min.js"></script>
+<script src="components/angular-animate/angular-animate.min.js"></script>
+<script src="components/angular-resource/angular-resource.min.js"></script>
+<script src="components/angular-route/angular-route.min.js"></script>
+<script src="js/libs/jquery.flot.js"></script>
+<script src="js/libs/jquery.flot.time.js"></script>
+
+<!-- App Definition -->
+<script src="js/app.js"></script>
+
+<!-- Dependencies -->
+<script src="js/controllers/dashboard.js"></script>
+<script src="js/controllers/header.js"></script>
+<script src="js/controllers/navigation.js"></script>
+<script src="js/controllers/repoView.js"></script>
+<script src="js/resources/all.js"></script>
+
+</body>
+</html>

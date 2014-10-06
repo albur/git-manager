@@ -1,0 +1,23 @@
+{
+  "name": "git-manager-ui",
+  "version": "0.0.0",
+  "description": "Node.js service for the git-manager-ui app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/smcelhinney/git-manager-ui.git"
+  },
+  "author": "Stephen McElhinney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smcelhinney/git-manager-ui/issues"
+  },
+  "homepage": "https://github.com/smcelhinney/git-manager-ui",
+  "dependencies": {
+    "express": "^4.9.5",
+    "restify": "^2.8.3"
+  }
+}
