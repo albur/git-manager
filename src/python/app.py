@@ -25,6 +25,7 @@ def reload():
     return '{ "result": ' + str(result) + ' }'
 
 @route("/")
+@route("/repo/<repo>")
 def index():
     return public("index.html")
 
