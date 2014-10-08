@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="/favicon.ico">
 	<base href="/"/>
-	<title>Git Manager UI</title>
+	<title>Git Manager</title>
 	<link href="css/site.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -26,7 +26,7 @@
 			<!--<span class="icon-bar"></span>-->
 			<!--<span class="icon-bar"></span>-->
 			<!--</button>-->
-			<a class="navbar-brand" href="#">Git Manager UI</a>
+			<a class="navbar-brand" href="#">Git Manager</a>
 		</div>
 		<a class="pull-right reload-btn" ng-click="reload()"><i class="glyphicon glyphicon-refresh"></i> Reload</a>
 		<!--<div class="navbar-collapse collapse">-->
@@ -47,7 +47,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3 col-md-2 sidebar" ng-controller="NavigationController">
-			<h4>Environment name</h4>
+			<h4>Server (branch)</h4>
 			<ul class="nav nav-sidebar">
 				<li ng-repeat="item in items" ng-class="{active: isActive(item)}"><a href="{{item.path}}">{{item.title}}</a>
 				</li>

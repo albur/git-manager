@@ -1,21 +1,21 @@
-<h2 class="sub-header">Commits for {{reponame}}</h2>
+<h2 class="sub-header">New commits in {{reponame}}</h2>
 
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 		<tr>
+			<th>Hash</th>
 			<th>Date</th>
-			<th>Name (email)</th>
+			<th>Author</th>
 			<th>Message</th>
-			<th>Shorthash (Hash)</th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr ng-repeat="commit in _commits">
+			<td>{{commit.short_hash}}</td>
 			<td>{{commit.date * 1000 | date:'medium'}}</td>
 			<td>{{commit.author_name}} ({{commit.author_email}})</td>
 			<td>{{commit.message}}</td>
-			<td>{{commit.short_hash}} ({{commit.hash}})</td>
 		</tr>
 		</tbody>
 	</table>

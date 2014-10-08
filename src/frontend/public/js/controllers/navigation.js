@@ -16,7 +16,6 @@
 						$scope.items = [];
 						Repo.query(function (s) {
 							_.each(s, function (i, j) {
-								//console.log(i, j);
 								$scope.items.push({path: '/repo/' + i.name, title: i.name + " (" + i.head + ")"});
 								$scope.$emit("gitui:updated");
 							});

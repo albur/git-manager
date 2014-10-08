@@ -1,2 +1,2 @@
 Alberto Burgos <albertoburgosmh@gmail.com> (back-end)
-smcelhinney <mcelhins@tcd.ie> (front-end)
+Stephen McElhinney <mcelhins@tcd.ie> (front-end)
