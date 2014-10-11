@@ -18,6 +18,11 @@ for repo in `git remote`; do
     # Get the differences between the remote's head and production
     head=$(git ls-remote $repo HEAD | grep -P '\tHEAD$' | sed s'/\t.*//')
     $curr_dir/git-json-log $head ^$prod_repo/$prod_branch > $data_dir/commits_$repo.json
+
+    # Create info file for the repository
+    if [[ ! -f $data_dir/info_$repo.json ]]; then
+        echo '{ "notes": "" }' > $data_dir/info_$repo.json
+    fi
 done
 
 echo "[$repos]" | sed 's/, \]/\]/' > $data_dir/repos.json
